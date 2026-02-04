@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story Conversation ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Playfair+Display:wght@400;700;900&family=Great+Vibes&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --midnight: #0a0e27;
+            --deep-space: #1a1a2e;
+            --cosmic-purple: #16213e;
+            --aurora-pink: #ff6b9d;
+            --aurora-purple: #c44569;
+            --rose-gold: #f8b195;
+            --champagne: #ffeaa7;
+            --stardust: #dfe6e9;
+            --pure-white: #ffffff;
+            --soft-blue: #74b9ff;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: radial-gradient(ellipse at bottom, var(--cosmic-purple) 0%, var(--midnight) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            color: var(--pure-white);
+            cursor: none;
+        }
+
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--aurora-pink);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: var(--champagne);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.15s ease;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px var(--champagne);
+        }
+
+        /* Starfield */
+        .stars-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 4s infinite ease-in-out;
+        }
+
+        .shooting-star {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--champagne), transparent);
+            animation: shoot 3s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes shoot {
+            0% {
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-300px) translateY(300px);
+                opacity: 0;
+            }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.4); }
+        }
+
+        /* Aurora Effect */
+        .aurora {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(ellipse at 30% 50%, rgba(255, 107, 157, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 50%, rgba(196, 69, 105, 0.15) 0%, transparent 50%);
+            animation: aurora 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        @keyframes aurora {
+            0%, 100% { transform: rotate(0deg) scale(1); opacity: 0.6; }
+            50% { transform: rotate(10deg) scale(1.1); opacity: 0.8; }
+        }
+
+        /* Heart Canvas */
+        #heartCanvas {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            opacity: 0.3;
+            filter: drop-shadow(0 0 40px rgba(255, 107, 157, 0.6));
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        /* Conversation Box */
+        .conversation-box {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Photo Frame */
+        .photo-frame {
+            text-align: center;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInPhoto 2s ease-out 1s forwards;
+        }
+
+        @keyframes fadeInPhoto {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .photo-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1rem;
+            position: relative;
+            border-radius: 50%;
+            padding: 8px;
+            background: linear-gradient(135deg, var(--aurora-pink), var(--champagne), var(--rose-gold));
+            animation: photoGlow 3s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(255, 107, 157, 0.6);
+        }
+
+        @keyframes photoGlow {
+            0%, 100% {
+                box-shadow: 0 0 40px rgba(255, 107, 157, 0.6);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 60px rgba(255, 234, 167, 0.8);
+                transform: scale(1.02);
+            }
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--midnight);
+            display: block;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.2), rgba(196, 69, 105, 0.2));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid var(--midnight);
+        }
+
+        .placeholder-icon {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.5;
+        }
+
+        .placeholder-text {
+            font-family: 'Italiana', serif;
+            font-size: 0.9rem;
+            color: var(--stardust);
+            opacity: 0.7;
+            letter-spacing: 1px;
+        }
+
+        .photo-caption {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--champagne), var(--aurora-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 107, 157, 0.3);
+        }
+
+        .conversation-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 157, 0.1) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        /* Message Styles */
+        .message {
+            position: relative;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInMessage 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeInMessage {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.you {
+            text-align: left;
+        }
+
+        .message.her {
+            text-align: right;
+        }
+
+        .message-label {
+            font-family: 'Italiana', serif;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            opacity: 0.7;
+        }
+
+        .message.you .message-label {
+            color: var(--soft-blue);
+        }
+
+        .message.her .message-label {
+            color: var(--aurora-pink);
+        }
+
+        .message-content {
+            display: inline-block;
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            position: relative;
+            max-width: 90%;
+        }
+
+        .message.you .message-content {
+            background: linear-gradient(135deg, rgba(116, 185, 255, 0.2), rgba(116, 185, 255, 0.1));
+            border: 1px solid rgba(116, 185, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(116, 185, 255, 0.2);
+        }
+
+        .message.her .message-content {
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.2), rgba(196, 69, 105, 0.1));
+            border: 1px solid rgba(255, 107, 157, 0.3);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.2);
+        }
+
+        .message-content .highlight {
+            color: var(--champagne);
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        /* Question Box */
+        .question-box {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.15), rgba(255, 234, 167, 0.1));
+            border-radius: 20px;
+            border: 1px solid rgba(255, 234, 167, 0.3);
+            opacity: 0;
+            transform: scale(0.9);
+            animation: fadeInScale 0.6s ease-out 0.3s forwards;
+        }
+
+        @keyframes fadeInScale {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .question-text {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--champagne), var(--rose-gold), var(--aurora-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .question-subtext {
+            font-size: 1.1rem;
+            color: var(--stardust);
+            opacity: 0.8;
+        }
+
+        /* Button Container */
+        .button-container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInMessage 0.6s ease-out 0.6s forwards;
+        }
+
+        /* Choice Buttons */
+        .choice-btn {
+            padding: 1rem 2rem;
+            font-family: 'Crimson Text', serif;
+            font-size: 1.2rem;
+            border: 2px solid;
+            border-radius: 25px;
+            cursor: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background: rgba(26, 26, 46, 0.5);
+            backdrop-filter: blur(10px);
+            min-width: 150px;
+        }
+
+        .choice-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .choice-btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .choice-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .choice-btn.option-a {
+            border-color: var(--aurora-pink);
+            color: var(--aurora-pink);
+        }
+
+        .choice-btn.option-a:hover {
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.3), rgba(196, 69, 105, 0.2));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+        }
+
+        .choice-btn.option-b {
+            border-color: var(--rose-gold);
+            color: var(--rose-gold);
+        }
+
+        .choice-btn.option-b:hover {
+            background: linear-gradient(135deg, rgba(248, 177, 149, 0.3), rgba(255, 234, 167, 0.2));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(248, 177, 149, 0.4);
+        }
+
+        .choice-btn.option-c {
+            border-color: var(--soft-blue);
+            color: var(--soft-blue);
+        }
+
+        .choice-btn.option-c:hover {
+            background: linear-gradient(135deg, rgba(116, 185, 255, 0.3), rgba(116, 185, 255, 0.2));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(116, 185, 255, 0.4);
+        }
+
+        /* Progress Indicator */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--aurora-pink), var(--champagne));
+            box-shadow: 0 0 10px var(--aurora-pink);
+            z-index: 10000;
+            transition: width 0.5s ease;
+        }
+
+        /* Scene Counter */
+        .scene-counter {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            font-family: 'Italiana', serif;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: var(--stardust);
+            opacity: 0.6;
+            z-index: 100;
+        }
+
+        /* Floating Hearts */
+        .floating-heart {
+            position: fixed;
+            font-size: 2rem;
+            animation: floatUp 5s ease-in infinite;
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.8));
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateY(-120vh) translateX(var(--drift)) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Final Scene Styling */
+        .final-message {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .final-photo-container {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 2rem;
+            position: relative;
+            border-radius: 50%;
+            padding: 6px;
+            background: linear-gradient(135deg, var(--champagne), var(--aurora-pink), var(--rose-gold));
+            animation: finalPhotoGlow 2s ease-in-out infinite;
+            box-shadow: 0 0 50px rgba(255, 107, 157, 0.8);
+        }
+
+        @keyframes finalPhotoGlow {
+            0%, 100% {
+                box-shadow: 0 0 50px rgba(255, 107, 157, 0.8);
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                box-shadow: 0 0 70px rgba(255, 234, 167, 1);
+                transform: scale(1.05) rotate(5deg);
+            }
+        }
+
+        .final-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid var(--midnight);
+            display: block;
+            animation: fadeInScale 1s ease-out;
+        }
+
+        .final-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            background: linear-gradient(135deg, var(--champagne), var(--aurora-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 20px rgba(255, 234, 167, 0.5)); }
+            50% { filter: brightness(1.3) drop-shadow(0 0 40px rgba(255, 234, 167, 0.8)); }
+        }
+
+        /* Restart Button */
+        .restart-btn {
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            font-family: 'Italiana', serif;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--aurora-pink), var(--aurora-purple));
+            border: none;
+            border-radius: 30px;
+            color: white;
+            cursor: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.4);
+        }
+
+        .restart-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .conversation-box {
+                padding: 2rem 1.5rem;
+            }
+            .photo-container {
+                width: 150px;
+                height: 150px;
+            }
+            .photo-caption {
+                font-size: 2rem;
+            }
+            .message-content {
+                font-size: 1.1rem;
+                padding: 1rem 1.5rem;
+            }
+            .question-text {
+                font-size: 2rem;
+            }
+            .choice-btn {
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+                min-width: 120px;
+            }
+            .final-title {
+                font-size: 3rem;
+            }
+            .final-photo-container {
+                width: 140px;
+                height: 140px;
+            }
+        }
+
+        /* Hide cursor on touch devices */
+        @media (hover: none) {
+            body {
+                cursor: auto;
+            }
+            .cursor, .cursor-follower {
+                display: none;
+            }
+            .choice-btn, .restart-btn {
+                cursor: pointer;
+            }
+        }
+
+        /* Fade out animation */
+        .fade-out {
+            animation: fadeOut 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursors -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Scene Counter -->
+    <div class="scene-counter" id="sceneCounter">Scene 1 of 7</div>
+
+    <!-- Aurora Effect -->
+    <div class="aurora"></div>
+
+    <!-- Starfield -->
+    <div class="stars-layer" id="starfield"></div>
+
+    <!-- Heart Canvas -->
+    <canvas id="heartCanvas"></canvas>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="conversation-box" id="conversationBox">
+            <!-- Photo Frame -->
+            <div class="photo-frame" id="photoFrame">
+                <div class="photo-container">
+                    <img src="morenikeji.jpg" alt="Morenikeji" id="heroPhoto" onerror="this.style.display='none'; document.getElementById('photoPlaceholder').style.display='flex';">
+                    <div class="photo-placeholder" id="photoPlaceholder" style="display: none;">
+                        <div class="placeholder-icon">📷</div>
+                        <div class="placeholder-text">Her Beautiful Smile</div>
+                    </div>
+                </div>
+                <div class="photo-caption">Morenikeji ✨</div>
+            </div>
+            
+            <div id="contentArea">
+                <!-- Content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Conversation Data Structure
+        const conversation = {
+            scene1: {
+                messages: [
+                    { speaker: 'you', text: 'Hey Morenikeji... I\'ve been thinking about something special.' },
+                    { speaker: 'you', text: 'Can I ask you a few questions? <span class="highlight">From my heart to yours</span>?' }
+                ],
+                question: {
+                    text: 'Are you ready?',
+                    subtext: 'Let\'s take a journey together...'
+                },
+                choices: [
+                    { text: 'I\'m ready! 💕', next: 'scene2', class: 'option-a' },
+                    { text: 'Always, my love ✨', next: 'scene2', class: 'option-b' }
+                ]
+            },
+            scene2: {
+                messages: [
+                    { speaker: 'you', text: 'Do you remember the first time we met?' },
+                    { speaker: 'you', text: 'That moment when our eyes locked... <span class="highlight">time stood still</span>.' }
+                ],
+                question: {
+                    text: 'What did you feel?',
+                    subtext: 'Tell me what your heart remembers...'
+                },
+                choices: [
+                    { text: 'Pure magic ✨', next: 'scene3', class: 'option-a' },
+                    { text: 'Like coming home 🏡', next: 'scene3', class: 'option-b' },
+                    { text: 'My whole world changed 🌍', next: 'scene3', class: 'option-c' }
+                ]
+            },
+            scene3: {
+                messages: [
+                    { speaker: 'her', text: 'I felt it too... like destiny brought us together.' },
+                    { speaker: 'you', text: 'Every day with you feels like a <span class="highlight">beautiful dream</span> I never want to wake up from.' },
+                    { speaker: 'you', text: 'You know what I love most about us?' }
+                ],
+                question: {
+                    text: 'How we...',
+                    subtext: 'Choose what makes us special'
+                },
+                choices: [
+                    { text: 'Laugh together 😂', next: 'scene4', class: 'option-a' },
+                    { text: 'Understand each other 💫', next: 'scene4', class: 'option-b' },
+                    { text: 'Grow together 🌱', next: 'scene4', class: 'option-c' }
+                ]
+            },
+            scene4: {
+                messages: [
+                    { speaker: 'her', text: 'That\'s beautiful... you always know how to make my heart flutter.' },
+                    { speaker: 'you', text: 'Speaking of hearts... mine beats <span class="highlight">only for you</span>.' },
+                    { speaker: 'you', text: 'Can I tell you something important?' }
+                ],
+                question: {
+                    text: 'I want you to know...',
+                    subtext: 'Choose how much you mean to me'
+                },
+                choices: [
+                    { text: 'You\'re my everything 💖', next: 'scene5', class: 'option-a' },
+                    { text: 'You complete me 🧩', next: 'scene5', class: 'option-b' },
+                    { text: 'I can\'t imagine life without you 💫', next: 'scene5', class: 'option-c' }
+                ]
+            },
+            scene5: {
+                messages: [
+                    { speaker: 'her', text: 'You\'re making me emotional... in the best way possible.' },
+                    { speaker: 'you', text: 'Good, because what I\'m about to ask comes from the <span class="highlight">deepest part of my soul</span>...' },
+                    { speaker: 'you', text: 'Every moment, every memory, every tomorrow...' }
+                ],
+                question: {
+                    text: 'I want to share them all...',
+                    subtext: 'How do you want to spend forever?'
+                },
+                choices: [
+                    { text: 'With you by my side 🤝', next: 'scene6', class: 'option-a' },
+                    { text: 'Making memories together 📸', next: 'scene6', class: 'option-b' },
+                    { text: 'In love, always ❤️', next: 'scene6', class: 'option-c' }
+                ]
+            },
+            scene6: {
+                messages: [
+                    { speaker: 'her', text: 'I feel exactly the same way... what\'s on your mind?' },
+                    { speaker: 'you', text: 'This Valentine\'s Day is special because <span class="highlight">you\'re in my life</span>.' },
+                    { speaker: 'you', text: 'And there\'s something I need to ask you...' }
+                ],
+                question: {
+                    text: 'This question is...',
+                    subtext: 'You\'re getting closer to the big moment!'
+                },
+                choices: [
+                    { text: 'From my heart 💓', next: 'scene7', class: 'option-a' },
+                    { text: 'Everything to me 🌟', next: 'scene7', class: 'option-b' },
+                    { text: 'A promise 💍', next: 'scene7', class: 'option-c' }
+                ]
+            },
+            scene7: {
+                messages: [
+                    { speaker: 'you', text: 'Here it is... the question that\'s been dancing in my heart...' },
+                    { speaker: 'you', text: 'The reason the stars are shining brighter tonight...' },
+                    { speaker: 'you', text: 'The reason my whole world feels <span class="highlight">complete</span>...' }
+                ],
+                question: {
+                    text: 'Will You Be My Valentine?',
+                    subtext: 'Forever and always, my love ❤️'
+                },
+                choices: [
+                    { text: 'YES! A thousand times YES! 💕', next: 'final', class: 'option-a' },
+                    { text: 'Of course, my darling! 💖', next: 'final', class: 'option-b' },
+                    { text: 'Forever yours! 💞', next: 'final', class: 'option-c' }
+                ]
+            },
+            final: {
+                messages: [
+                    { speaker: 'her', text: '💖💖💖' },
+                    { speaker: 'you', text: 'You\'ve just made me the <span class="highlight">happiest person alive</span>! 🎉' }
+                ],
+                isFinal: true
+            }
+        };
+
+        // State
+        let currentScene = 'scene1';
+        let totalScenes = 7;
+
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                follower.style.left = e.clientX + 'px';
+                follower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+
+        // Create Starfield
+        function createStars() {
+            const starfield = document.getElementById('starfield');
+            const numberOfStars = 200;
+            const shootingStars = 3;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                const size = Math.random() * 3 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.animationDelay = Math.random() * 4 + 's';
+                star.style.animationDuration = (Math.random() * 4 + 3) + 's';
+                starfield.appendChild(star);
+            }
+
+            for (let i = 0; i < shootingStars; i++) {
+                const shootingStar = document.createElement('div');
+                shootingStar.className = 'shooting-star';
+                shootingStar.style.left = Math.random() * 100 + '%';
+                shootingStar.style.top = Math.random() * 50 + '%';
+                shootingStar.style.width = (Math.random() * 100 + 100) + 'px';
+                shootingStar.style.animationDelay = Math.random() * 10 + 's';
+                shootingStar.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                starfield.appendChild(shootingStar);
+            }
+        }
+
+        // Draw Heart
+        function drawHeart() {
+            const canvas = document.getElementById('heartCanvas');
+            const ctx = canvas.getContext('2d');
+            const scale = Math.min(window.innerWidth, window.innerHeight) / 600;
+            
+            canvas.width = 500 * scale;
+            canvas.height = 500 * scale;
+
+            let particles = [];
+            const particleCount = 100;
+
+            class Particle {
+                constructor(t) {
+                    this.t = t;
+                    this.size = Math.random() * 3 + 1;
+                    this.opacity = 0;
+                    this.speed = Math.random() * 0.002 + 0.001;
+                    this.color = Math.random() > 0.5 ? [255, 107, 157] : [255, 234, 167];
+                }
+
+                update() {
+                    this.t += this.speed;
+                    if (this.t > 1) this.t = 0;
+                    
+                    if (this.t < 0.3) {
+                        this.opacity = this.t / 0.3;
+                    } else if (this.t > 0.7) {
+                        this.opacity = (1 - this.t) / 0.3;
+                    } else {
+                        this.opacity = 1;
+                    }
+                }
+
+                draw() {
+                    const angle = this.t * Math.PI * 2;
+                    const x = 16 * Math.pow(Math.sin(angle), 3);
+                    const y = -(13 * Math.cos(angle) - 5 * Math.cos(2 * angle) - 2 * Math.cos(3 * angle) - Math.cos(4 * angle));
+                    
+                    const centerX = canvas.width / 2;
+                    const centerY = canvas.height / 2;
+                    const heartScale = Math.min(canvas.width, canvas.height) / 50;
+
+                    const posX = centerX + x * heartScale;
+                    const posY = centerY + y * heartScale;
+
+                    ctx.beginPath();
+                    ctx.arc(posX, posY, this.size, 0, Math.PI * 2);
+                    
+                    const gradient = ctx.createRadialGradient(posX, posY, 0, posX, posY, this.size * 3);
+                    gradient.addColorStop(0, `rgba(${this.color[0]}, ${this.color[1]}, ${this.color[2]}, ${this.opacity})`);
+                    gradient.addColorStop(1, `rgba(${this.color[0]}, ${this.color[1]}, ${this.color[2]}, ${this.opacity * 0.2})`);
+                    
+                    ctx.fillStyle = gradient;
+                    ctx.shadowBlur = 20;
+                    ctx.shadowColor = `rgba(${this.color[0]}, ${this.color[1]}, ${this.color[2]}, 0.5)`;
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle(i / particleCount));
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+        }
+
+        // Update Progress Bar
+        function updateProgress(sceneNumber) {
+            const progress = (sceneNumber / totalScenes) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('sceneCounter').textContent = `Scene ${sceneNumber} of ${totalScenes}`;
+        }
+
+        // Render Scene
+        function renderScene(sceneKey) {
+            const scene = conversation[sceneKey];
+            const contentArea = document.getElementById('contentArea');
+            
+            // Fade out current content
+            contentArea.classList.add('fade-out');
+            
+            setTimeout(() => {
+                contentArea.innerHTML = '';
+                contentArea.classList.remove('fade-out');
+                
+                // Render messages
+                scene.messages.forEach((msg, index) => {
+                    setTimeout(() => {
+                        const messageDiv = document.createElement('div');
+                        messageDiv.className = `message ${msg.speaker}`;
+                        messageDiv.innerHTML = `
+                            <div class="message-label">${msg.speaker === 'you' ? 'You' : 'Her'}</div>
+                            <div class="message-content">${msg.text}</div>
+                        `;
+                        contentArea.appendChild(messageDiv);
+                        
+                        // Scroll to bottom
+                        contentArea.scrollTop = contentArea.scrollHeight;
+                    }, index * 800);
+                });
+                
+                // Render question and choices (if not final scene)
+                if (!scene.isFinal) {
+                    setTimeout(() => {
+                        const questionDiv = document.createElement('div');
+                        questionDiv.className = 'question-box';
+                        questionDiv.innerHTML = `
+                            <div class="question-text">${scene.question.text}</div>
+                            <div class="question-subtext">${scene.question.subtext}</div>
+                        `;
+                        contentArea.appendChild(questionDiv);
+                        
+                        const buttonContainer = document.createElement('div');
+                        buttonContainer.className = 'button-container';
+                        
+                        scene.choices.forEach(choice => {
+                            const button = document.createElement('button');
+                            button.className = `choice-btn ${choice.class}`;
+                            button.innerHTML = `<span>${choice.text}</span>`;
+                            button.onclick = () => handleChoice(choice.next);
+                            buttonContainer.appendChild(button);
+                        });
+                        
+                        contentArea.appendChild(buttonContainer);
+                    }, scene.messages.length * 800 + 500);
+                } else {
+                    // Render final scene
+                    setTimeout(() => {
+                        const finalDiv = document.createElement('div');
+                        finalDiv.className = 'final-message';
+                        finalDiv.innerHTML = `
+                            <div class="final-photo-container">
+                                <img src="morenikeji.jpg" alt="Morenikeji" class="final-photo" onerror="this.style.display='none';">
+                            </div>
+                            <div class="final-title">My Dearest Morenikeji ❤️</div>
+                            <p style="font-size: 1.3rem; line-height: 2; color: var(--stardust); margin: 2rem 0; text-align: left; max-width: 700px; margin-left: auto; margin-right: auto;">
+                                From the moment you came into my life, love stopped being just a word and became something I breathe, something I live. You are <span class="highlight">peace to my chaos</span>, warmth to my cold days, and the most beautiful chapter of my story.
+                                <br><br>
+                                They say love is a journey, but with you, it feels like <span class="highlight">home already</span>. Your smile is my favourite place, your voice is my calm, and your heart is where I always want to belong.
+                                <br><br>
+                                Morenikeji, <em style="color: var(--aurora-pink);">nyi wo mi shi</em> (you mean so much to me). <em style="color: var(--aurora-pink);">Nyi wo zhin nyi</em> (I cherish/love you deeply).
+                                <br><br>
+                                As Valentine approaches, I don't just want to celebrate love… I want to celebrate <span class="highlight">our love</span> — the laughter, the little moments, the memories we are creating, and the forever I hope we are building together.
+                                <br><br>
+                                Thank you for accepting to be my val.
+                                <br><br>
+                                <em style="color: var(--champagne); font-size: 1.4rem;">Nyi wo be ni kpa mi</em> (Stay with me / Be mine).
+                            </p>
+                            <p style="font-size: 1.5rem; color: var(--rose-gold); margin-top: 3rem; font-family: 'Great Vibes', cursive;">
+                                Forever yours.
+                            </p>
+                            <button class="restart-btn" onclick="restartConversation()">
+                                Experience It Again ✨
+                            </button>
+                        `;
+                        contentArea.appendChild(finalDiv);
+                        
+                        // Trigger celebration
+                        createMassiveHeartExplosion();
+                        createFireworks();
+                    }, scene.messages.length * 800 + 500);
+                }
+            }, 500);
+        }
+
+        // Handle Choice
+        function handleChoice(nextScene) {
+            createFloatingHearts(5);
+            
+            if (nextScene === 'final') {
+                setTimeout(() => {
+                    currentScene = nextScene;
+                    renderScene(currentScene);
+                    updateProgress(7);
+                }, 500);
+            } else {
+                const sceneNumber = parseInt(nextScene.replace('scene', ''));
+                setTimeout(() => {
+                    currentScene = nextScene;
+                    renderScene(currentScene);
+                    updateProgress(sceneNumber);
+                }, 500);
+            }
+        }
+
+        // Restart Conversation
+        function restartConversation() {
+            currentScene = 'scene1';
+            renderScene(currentScene);
+            updateProgress(1);
+        }
+
+        // Floating Hearts
+        function createFloatingHearts(count = 10) {
+            const hearts = ['❤️', '💕', '💖', '💗', '💝', '💞'];
+            
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-heart';
+                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.setProperty('--drift', (Math.random() * 200 - 100) + 'px');
+                    heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                    heart.style.fontSize = (Math.random() * 1.5 + 1.5) + 'rem';
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => heart.remove(), 6000);
+                }, i * 100);
+            }
+        }
+
+        // Massive Heart Explosion
+        function createMassiveHeartExplosion() {
+            const hearts = ['❤️', '💕', '💖', '💗', '💝', '💞'];
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'floating-heart';
+                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.setProperty('--drift', (Math.random() * 400 - 200) + 'px');
+                    heart.style.animationDuration = (Math.random() * 4 + 3) + 's';
+                    heart.style.fontSize = (Math.random() * 2 + 1.5) + 'rem';
+                    document.body.appendChild(heart);
+
+                    setTimeout(() => heart.remove(), 7000);
+                }, i * 50);
+            }
+        }
+
+        // Fireworks
+        function createFireworks() {
+            const colors = ['#ff6b9d', '#ffeaa7', '#f8b195', '#c44569'];
+            
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const x = Math.random() * window.innerWidth;
+                    const y = Math.random() * window.innerHeight * 0.6;
+                    
+                    for (let j = 0; j < 20; j++) {
+                        const spark = document.createElement('div');
+                        spark.style.position = 'fixed';
+                        spark.style.left = x + 'px';
+                        spark.style.top = y + 'px';
+                        spark.style.width = '4px';
+                        spark.style.height = '4px';
+                        spark.style.borderRadius = '50%';
+                        spark.style.background = colors[Math.floor(Math.random() * colors.length)];
+                        spark.style.pointerEvents = 'none';
+                        spark.style.zIndex = '999';
+                        
+                        const angle = (Math.PI * 2 * j) / 20;
+                        const distance = Math.random() * 150 + 80;
+                        const tx = Math.cos(angle) * distance;
+                        const ty = Math.sin(angle) * distance;
+                        
+                        spark.animate([
+                            { transform: 'translate(0, 0)', opacity: 1 },
+                            { transform: `translate(${tx}px, ${ty}px)`, opacity: 0 }
+                        ], {
+                            duration: 1500,
+                            easing: 'ease-out'
+                        });
+                        
+                        document.body.appendChild(spark);
+                        setTimeout(() => spark.remove(), 1500);
+                    }
+                }, i * 600);
+            }
+        }
+
+        // Initialize
+        createStars();
+        drawHeart();
+        renderScene(currentScene);
+        updateProgress(1);
+        createFloatingHearts(3);
+
+        // Responsive
+        window.addEventListener('resize', drawHeart);
+    </script>
+</body>
+</html>
